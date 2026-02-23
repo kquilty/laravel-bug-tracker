@@ -7,9 +7,12 @@
 <body>
     <h1>Existing Bugs</h1>
     <ul>
-        <li> <a href="/bugs/{{ $bug_array[0]['id'] }}"> {{ $bug_array[0]['title'].' ('.$bug_array[0]['status'].')' }} </a> </li>
-        <li>{{ $bug_array[1]['title'].' ('.$bug_array[1]['status'].')' }}</li>
-        <li>{{ $bug_array[2]['title'].' ('.$bug_array[2]['status'].')' }}</li>
+        @foreach ($bug_array as $bug)
+            <li>
+                <p>{{ $bug['title'].' ('.$bug['status'].')' }}</p>
+                <a href="/bugs/{{ $bug['id'] }}">View Details</a> 
+            </li>
+        @endforeach
     </ul>
 </body>
 </html>
