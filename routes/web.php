@@ -20,6 +20,10 @@ Route::get('/bugs', function () {
     ]);
 });
 
+Route::get('/bugs/report', function () {
+    return view('bugs.report');
+});
+
 Route::get('/bugs/{id}', function ($id) {
 
     //TODO: Fetch full record from id, pass in below.

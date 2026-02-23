@@ -1,10 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Tracker - Bugs</title>
-</head>
-<body>
+<x-layout>
     <h1>Existing Bugs</h1>
     <ul>
         @foreach ($bug_array as $bug)
@@ -14,5 +8,4 @@
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+</x-layout>
