@@ -7,9 +7,9 @@
 <body>
     <h1>Existing Bugs</h1>
     <ul>
-        <li>Bug 1: Application crashes on login.</li>
-        <li>Bug 2: Incorrect total displayed in shopping cart.</li>
-        <li>Bug 3: Profile picture upload fails.</li>
+        <li> <a href="/bugs/{{ $bug_array[0]['id'] }}"> {{ $bug_array[0]['title'].' ('.$bug_array[0]['status'].')' }} </a> </li>
+        <li>{{ $bug_array[1]['title'].' ('.$bug_array[1]['status'].')' }}</li>
+        <li>{{ $bug_array[2]['title'].' ('.$bug_array[2]['status'].')' }}</li>
     </ul>
 </body>
 </html>
