@@ -53,6 +53,10 @@ main {
 .card {
     border: 1px solid #ccc;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .card-warning {
     border-left: 3px solid red;
