@@ -1,8 +1,9 @@
 <x-layout>
-    <h1>Welcome to the Bug Tracker Application</h1>
-    <p>Click below to explore the existing bugs.</p>
+    
+    <h1>Welcome to the Bug Tracker</h1>
 
-    <a href="/bugs" class="btn">
-        Explore Bugs
+    <a href="/bugs" class="btn mt-5">
+        Lets Go
     </a>
+
 </x-layout>
