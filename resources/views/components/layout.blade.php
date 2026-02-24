@@ -9,14 +9,16 @@
 </head>
 <body>
     <header>
-        <h1>Bug Tracker v1.0</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/bugs">View Bugs</a></li>
-                <li><a href="/bugs/report">Report Bug</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <h1>Bug Tracker v1.0</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/bugs">View Bugs</a></li>
+                    <li><a href="/bugs/report">Report Bug</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
