@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Bug Tracker v1.0</h1>
+            <h1>Bug Tracker v1.0.0</h1>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>

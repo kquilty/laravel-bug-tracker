@@ -16,4 +16,16 @@ class BugController extends Controller
             'bug_array' => $bug_array
         ]);
     }
+
+    function show($id) {
+        $bug = Bug::find($id);
+
+        return view('bugs.show', [
+            'bug' => $bug
+        ]);
+    }
+
+    function report() {
+        return view('bugs.report');
+    }
 }

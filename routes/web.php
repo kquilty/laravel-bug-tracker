@@ -8,13 +8,6 @@ Route::get('/', function () {
 
 Route::get('/bugs', [App\Http\Controllers\BugController::class, 'index']);
 
-Route::get('/bugs/report', function () {
-    return view('bugs.report');
-});
+Route::get('/bugs/report', [App\Http\Controllers\BugController::class, 'report']);
 
-Route::get('/bugs/{id}', function ($id) {
-
-    //TODO: Fetch full record from id, pass in below.
-
-    return view('bugs.show', ['id' => $id]);
-});
+Route::get('/bugs/{id}', [App\Http\Controllers\BugController::class, 'show']);
