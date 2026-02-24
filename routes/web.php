@@ -6,19 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bugs', function () {
-
-    //TODO: Fetch from database, pass in below.
-    $bug_array = [
-        ['id' => 1, 'title' => 'Login page error', 'status' => 'open', 'days_old' => 10],
-        ['id' => 2, 'title' => 'Dashboard not loading', 'status' => 'in progress', 'days_old' => 20],
-        ['id' => 3, 'title' => 'Profile update fails', 'status' => 'closed', 'days_old' => 35],
-    ];
-
-    return view('bugs.index', [
-        'bug_array' => $bug_array
-    ]);
-});
+Route::get('/bugs', [App\Http\Controllers\BugController::class, 'index']);
 
 Route::get('/bugs/report', function () {
     return view('bugs.report');
