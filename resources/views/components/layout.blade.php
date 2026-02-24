@@ -3,6 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bug Tracker</title>
+
+    @vite('resources/css/app.css')
+
 </head>
 <body>
     <header>
@@ -10,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/bugs">Bugs</a></li>
+                <li><a href="/bugs">View Bugs</a></li>
                 <li><a href="/bugs/report">Report Bug</a></li>
             </ul>
         </nav>
