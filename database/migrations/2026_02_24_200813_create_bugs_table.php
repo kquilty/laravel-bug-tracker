@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('status', ['open', 'in progress', 'closed'])->default('open');
+            $table->integer('days_old')->default(0);
             $table->timestamps();
         });
     }
