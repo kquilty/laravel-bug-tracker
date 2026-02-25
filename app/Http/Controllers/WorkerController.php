@@ -20,7 +20,7 @@ class WorkerController extends Controller
             $sort = 'newest';
         }
 
-        $baseQuery = Worker::query();
+        $baseQuery = Worker::query()->with('team:id,name');
 
         if ($search !== '') {
             $baseQuery->where(function ($query) use ($search) {

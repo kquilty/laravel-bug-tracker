@@ -20,7 +20,7 @@ class TeamController extends Controller
             $sort = 'newest';
         }
 
-        $baseQuery = Team::query();
+        $baseQuery = Team::query()->withCount('workers');
 
         if ($search !== '') {
             $baseQuery->where('name', 'like', "%{$search}%");

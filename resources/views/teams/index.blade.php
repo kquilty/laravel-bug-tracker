@@ -48,11 +48,53 @@
 
     <ul class="teamlist-index">
         @foreach ($team_array as $team)
+            @php
+                $memberCount = $team->workers_count ?? 0;
+
+                $membershipClass = $memberCount > 0
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+                    : 'border-slate-200 bg-slate-50 text-slate-700';
+
+                $recencyClass = $team->created_at->isAfter(now()->subDays(7))
+                    ? 'border-blue-200 bg-blue-50 text-blue-700'
+                    : 'border-slate-200 bg-slate-50 text-slate-700';
+            @endphp
             <li>
-                <x-card href="{{ route('teams.show', $team['id']) }}">
-                    <div>
-                        <p>{{ $team['name'] }}</p>
-                        <p class="text-sm text-gray-500">Created {{ $team['created_at']->diffForHumans() }}</p>
+                <x-card href="{{ route('teams.show', $team->id) }}">
+                    <div class="space-y-3">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                            <div class="min-w-0">
+                                <p class="truncate text-base font-semibold text-slate-900">{{ $team->name }}</p>
+                                <p class="mt-1 text-xs text-slate-500">Team #{{ $team->id }} • Created {{ $team->created_at->diffForHumans() }}</p>
+                            </div>
+
+                            <span class="inline-flex w-fit items-center rounded-full border px-2.5 py-1 text-xs font-medium {{ $membershipClass }}">
+                                {{ $memberCount > 0 ? 'Active Team' : 'No Members Yet' }}
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-slate-600">
+                            {{ $memberCount > 0
+                                ? 'Team currently has '.$memberCount.' member'.($memberCount === 1 ? '' : 's').'.'
+                                : 'This team has not been assigned members yet.' }}
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700">
+                                <x-google-icon name="groups" class="mr-1 !text-[14px]" />
+                                {{ $memberCount }} member{{ $memberCount === 1 ? '' : 's' }}
+                            </span>
+
+                            <span class="inline-flex items-center rounded-full border px-2.5 py-1 {{ $recencyClass }}">
+                                <x-google-icon name="calendar_today" class="mr-1 !text-[14px]" />
+                                {{ $team->created_at->format('M j, Y') }}
+                            </span>
+
+                            <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700">
+                                <x-google-icon name="schedule" class="mr-1 !text-[14px]" />
+                                {{ floor($team->created_at->diffInDays(now())) }} day{{ floor($team->created_at->diffInDays(now())) === 1 ? '' : 's' }} old
+                            </span>
+                        </div>
                     </div>
                 </x-card>
             </li>
