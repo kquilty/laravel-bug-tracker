@@ -22,6 +22,9 @@
                     <li><a href="{{ route('workers.index') }}">Workers</a></li>
                     {{-- <li><a href="{{ route('workers.create') }}">Add Worker</a></li> --}}
 
+                    <li><a href="{{ route('teams.index') }}">Teams</a></li>
+                    {{-- <li><a href="{{ route('teams.create') }}">Add Team</a></li> --}}
+
                 </ul>
             </nav>
         </div>
