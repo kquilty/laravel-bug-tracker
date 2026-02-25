@@ -1,6 +1,36 @@
 import './bootstrap';
+import Lenis from 'lenis';
 
 const AUTO_SUBMIT_FOCUS_KEY = 'auto-submit-focus';
+
+const setupDesktopSmoothScroll = () => {
+	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const canHover = window.matchMedia('(hover: hover)').matches;
+	const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+	if (prefersReducedMotion || !canHover || !hasFinePointer) {
+		return;
+	}
+
+	document.body.classList.add('smooth-scroll-enabled');
+
+	const lenis = new Lenis({
+		duration: 0.8,
+		easing: (t) => 1 - Math.pow(1 - t, 2.2),
+		smoothWheel: true,
+		smoothTouch: false,
+		wheelMultiplier: 1,
+	});
+
+	const raf = (time) => {
+		lenis.raf(time);
+		window.requestAnimationFrame(raf);
+	};
+
+	window.requestAnimationFrame(raf);
+};
+
+setupDesktopSmoothScroll();
 
 const header = document.querySelector('header');
 
