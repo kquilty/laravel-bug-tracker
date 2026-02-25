@@ -4,9 +4,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\TeamController;
+use App\Models\Bug;
+use App\Models\Team;
+use App\Models\Worker;
 
 Route::get('/', function () {
-    return view('welcome');
+    $openBugCount = Bug::where('status', 'open')->count();
+    $inProgressBugCount = Bug::where('status', 'in progress')->count();
+    $staleBugCount = Bug::where('days_old', '>=', 30)->count();
+
+    $workerCount = Worker::count();
+    $teamCount = Team::count();
+    $unassignedWorkersCount = Worker::whereNull('team_id')->count();
+
+    $latestBug = Bug::latest('created_at')->first();
+
+    return view('welcome', [
+        'openBugCount' => $openBugCount,
+        'inProgressBugCount' => $inProgressBugCount,
+        'staleBugCount' => $staleBugCount,
+        'workerCount' => $workerCount,
+        'teamCount' => $teamCount,
+        'unassignedWorkersCount' => $unassignedWorkersCount,
+        'latestBug' => $latestBug,
+    ]);
 });
 
 Route::get('/bugs',         [BugController::class, 'index']) ->name('bugs.index');
