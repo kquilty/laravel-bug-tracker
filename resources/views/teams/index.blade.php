@@ -22,6 +22,7 @@
 
     <x-list-page-header
         eyebrow="Team Directory"
+        eyebrow_icon="diversity_3"
         title="Teams"
         subtitle="Review group structure, monitor staffing, and organize team ownership."
         :action-href="route('teams.create')"

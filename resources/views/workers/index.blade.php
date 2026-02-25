@@ -22,7 +22,8 @@
     @endphp
 
     <x-list-page-header
-        eyebrow="Team Operations"
+        eyebrow="Worker Directory"
+        eyebrow_icon="people"
         title="Workers"
         subtitle="Browse contributors, review roles, and keep team assignments organized."
         :action-href="route('workers.create')"

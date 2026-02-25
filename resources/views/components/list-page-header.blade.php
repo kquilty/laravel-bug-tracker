@@ -1,6 +1,8 @@
 @props([
     'eyebrow' => null,
+    'eyebrow_icon' => null,
     'title',
+    'title_icon' => null,
     'subtitle' => null,
     'actionHref' => null,
     'actionLabel' => null,
@@ -35,9 +37,21 @@
         <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
                 @if ($eyebrow)
-                    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">{{ $eyebrow }}</p>
+                    <span style="display: flex; align-items: end; gap:4px;">
+                        @if ($eyebrow_icon)
+                            <x-google-icon :name="$eyebrow_icon" wght="300" style="font-size: 30px; color: #6B7280;" />
+                        @endif
+                        <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">{{ $eyebrow }}</p>
+                </span>
                 @endif
-                <h1 class="text-2xl font-semibold text-slate-900">{{ $title }}</h1>
+
+                <span style="display: flex; align-items: center;">
+                    <h1 class="text-2xl font-semibold text-slate-900">{{ $title }}</h1>
+                    @if ($title_icon)
+                        <x-google-icon :name="$title_icon" style="font-size: 40px" />
+                    @endif
+                </span>
+
                 @if ($subtitle)
                     <p class="mt-1 text-sm text-slate-600">{{ $subtitle }}</p>
                 @endif
@@ -65,7 +79,9 @@
             <div class="w-full">
                 <span class="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Filter</span>
                 <label class="flex w-full items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-500">
-                    <span aria-hidden="true">🔎</span>
+                    <span aria-hidden="true">
+                        <x-google-icon name="search" />
+                    </span>
                     <input
                         type="text"
                         name="search"

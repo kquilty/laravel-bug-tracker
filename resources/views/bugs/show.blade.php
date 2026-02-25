@@ -6,8 +6,11 @@
     @endphp
 
     @if(!is_null($ageInDays) && $ageInDays > 30)
-        <div class="text-red-700 font-semibold mb-4">
-            ⚠️ This bug is {{ floor($ageInDays) }} days old. ⚠️ 
+        <div class="text-red-700 font-semibold mb-4 flex">
+            <x-google-icon name="warning" />
+            <span>
+                This bug is {{ floor($ageInDays) }} days old. 
+            </span>
         </div>
     @endif
 

@@ -5,6 +5,8 @@
     <title>Bug Tracker</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('components.head-google-icons')
+
 
 </head>
 <body class="site-shell">
