@@ -200,6 +200,15 @@ main {
     max-height: 24px;
 }
 
+.list-header-controls {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 18px -18px rgba(15, 23, 42, 0.75);
+}
+
 @media (max-width: 640px) {
     .card {
         flex-direction: column;
@@ -233,5 +242,13 @@ main {
 
     main {
         padding: 7.25rem 1.25rem 2rem;
+    }
+
+    .list-header-controls {
+        top: 106px;
+    }
+
+    .header-is-compact .list-header-controls {
+        top: 60px;
     }
 }

@@ -17,9 +17,11 @@ if (header) {
 		if (!isCompact && currentY >= COMPACT_ENTER_Y) {
 			isCompact = true;
 			header.classList.add('is-compact');
+			document.body.classList.add('header-is-compact');
 		} else if (isCompact && currentY <= COMPACT_EXIT_Y) {
 			isCompact = false;
 			header.classList.remove('is-compact');
+			document.body.classList.remove('header-is-compact');
 		}
 	};
 
