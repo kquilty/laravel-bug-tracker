@@ -14,8 +14,8 @@
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/bugs">View Bugs</a></li>
-                    <li><a href="/bugs/report">Report Bug</a></li>
+                    <li><a href="{{ route('bugs.index') }}">View Bugs</a></li>
+                    <li><a href="{{ route('bugs.report') }}">Report Bug</a></li>
                 </ul>
             </nav>
         </div>

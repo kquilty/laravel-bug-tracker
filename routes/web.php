@@ -7,6 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bugs',         [BugController::class, 'index']);
-Route::get('/bugs/report',  [BugController::class, 'report']);
-Route::get('/bugs/{id}',    [BugController::class, 'show']);
+Route::get('/bugs',         [BugController::class, 'index']) ->name('bugs.index');
+Route::get('/bugs/report',  [BugController::class, 'report'])->name('bugs.report');
+Route::get('/bugs/{id}',    [BugController::class, 'show'])  ->name('bugs.show');
