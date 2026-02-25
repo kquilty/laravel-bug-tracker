@@ -20,7 +20,9 @@ class BugController extends Controller
             $sort = 'newest';
         }
 
-        $baseQuery = Bug::query()->whereIn('status', ['open', 'in progress']);
+        $baseQuery = Bug::query()
+            ->with('worker:id,name')
+            ->whereIn('status', ['open', 'in progress']);
 
         if ($search !== '') {
             $baseQuery->where(function ($query) use ($search) {
