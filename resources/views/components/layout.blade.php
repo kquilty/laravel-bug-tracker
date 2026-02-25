@@ -13,16 +13,21 @@
             <h1>Bug Tracker v1.0.0</h1>
             <nav>
                 <ul>
+
                     <li><a href="/">Home</a></li>
-                    <li><a href="{{ route('bugs.index') }}">View Bugs</a></li>
-                    <li><a href="{{ route('bugs.report') }}">Report Bug</a></li>
+
+                    <li><a href="{{ route('bugs.index') }}">Bugs</a></li>
+                    {{-- <li><a href="{{ route('bugs.report') }}">Report Bug</a></li> --}}
+
+                    <li><a href="{{ route('workers.index') }}">Workers</a></li>
+                    {{-- <li><a href="{{ route('workers.create') }}">Add Worker</a></li> --}}
+
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        {{ 'Team '.ucfirst(fake()->word()) }}
         {{ $slot }}
     </main>
 

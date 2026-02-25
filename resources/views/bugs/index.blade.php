@@ -1,5 +1,8 @@
 <x-layout>
-    <h1 style="font-size: 20px; margin-bottom: 1rem;">Open Bugs: <b>{{ $bug_array->total() }}</b></h1>
+    <div style="display: flex; justify-content: center; gap: 2rem; align-items: baseline; margin-bottom: 1rem;">
+        <h1 style="font-size: 20px; margin-bottom: 1rem;">Open Bugs: <b>{{ $bug_array->total() }}</b></h1>
+        <a class="btn" href='{{ route('bugs.report') }}'">Report New Bug</a>
+    </div>
     <ul class="buglist-index">
         @foreach ($bug_array as $bug)
             <li>
