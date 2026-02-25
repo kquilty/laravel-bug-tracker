@@ -4,13 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bug Tracker</title>
 
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body>
+<body class="site-shell">
     <header>
         <div class="header-content">
-            <h1>Bug Tracker v1.0.0</h1>
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <h1>Bug Tracker</h1>
+            </div>
             <nav>
                 <ul>
 
@@ -30,7 +33,7 @@
         </div>
     </header>
 
-    <main class="container">
+    <main>
         {{ $slot }}
     </main>
 
