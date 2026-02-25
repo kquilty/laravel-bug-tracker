@@ -1,8 +1,50 @@
 <x-layout>
-    <div style="display: flex; justify-content: center; gap: 2rem; align-items: baseline; margin-bottom: 1rem;">
-        <h1 style="font-size: 20px; margin-bottom: 1rem;">Total Teams: <b>{{ $team_array->total() }}</b></h1>
-        <a class="btn" href='{{ route('teams.create') }}'">Add New Team</a>
+    @php
+        $teamStats = [
+            ['label' => 'Total Teams', 'value' => $totalTeamsCount],
+            ['label' => 'Teams With Members', 'value' => $withMembersCount],
+            ['label' => 'New This Week', 'value' => $newThisWeekCount],
+        ];
+
+        $membershipOptions = [
+            ['value' => 'all', 'label' => 'All Teams'],
+            ['value' => 'with_members', 'label' => 'With Members'],
+            ['value' => 'without_members', 'label' => 'Without Members'],
+        ];
+
+        $teamSortOptions = [
+            ['value' => 'newest', 'label' => 'Newest First'],
+            ['value' => 'oldest', 'label' => 'Oldest First'],
+            ['value' => 'name_asc', 'label' => 'Name A-Z'],
+            ['value' => 'name_desc', 'label' => 'Name Z-A'],
+        ];
+    @endphp
+
+    <x-list-page-header
+        eyebrow="Team Directory"
+        title="Teams"
+        subtitle="Review group structure, monitor staffing, and organize team ownership."
+        :action-href="route('teams.create')"
+        action-label="Add New Team"
+        :stats="$teamStats"
+        :form-action="route('teams.index')"
+        :search="$search"
+        search-placeholder="Search teams by name"
+        hint-id="teams-search-hint"
+        filter-label="Membership"
+        filter-name="membership"
+        :filter-value="$membership"
+        :filter-options="$membershipOptions"
+        sort-label="Sort"
+        sort-name="sort"
+        :sort-value="$sort"
+        :sort-options="$teamSortOptions"
+    />
+
+    <div class="mb-4 text-sm text-gray-500">
+        Showing {{ $team_array->count() }} team{{ $team_array->count() === 1 ? '' : 's' }} on this page.
     </div>
+
     <ul class="teamlist-index">
         @foreach ($team_array as $team)
             <li>

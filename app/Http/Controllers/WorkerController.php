@@ -7,13 +7,59 @@ use App\Models\Worker;
 
 class WorkerController extends Controller
 {
-    function index() {
-        $worker_array = Worker::orderBy('created_at', 'desc')
-            //->whereIn('status', ['open', 'in progress'])
-            ->paginate(10);
+    function index(Request $request) {
+        $search = trim((string) $request->query('search', ''));
+        $position = (string) $request->query('position', 'all');
+        $sort = (string) $request->query('sort', 'newest');
+
+        if (!in_array($position, ['all', 'general', 'developer', 'manager'], true)) {
+            $position = 'all';
+        }
+
+        if (!in_array($sort, ['newest', 'oldest', 'name_asc', 'name_desc'], true)) {
+            $sort = 'newest';
+        }
+
+        $baseQuery = Worker::query();
+
+        if ($search !== '') {
+            $baseQuery->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        if ($position !== 'all') {
+            $baseQuery->where('position', $position);
+        }
+
+        $worker_array = match ($sort) {
+            'oldest' => $baseQuery->orderBy('created_at', 'asc')->paginate(10)->withQueryString(),
+            'name_asc' => $baseQuery->orderBy('name', 'asc')->paginate(10)->withQueryString(),
+            'name_desc' => $baseQuery->orderBy('name', 'desc')->paginate(10)->withQueryString(),
+            default => $baseQuery->orderBy('created_at', 'desc')->paginate(10)->withQueryString(),
+        };
+
+        $statsQuery = Worker::query();
+        if ($search !== '') {
+            $statsQuery->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        $totalWorkersCount = (clone $statsQuery)->count();
+        $managerCount = (clone $statsQuery)->where('position', 'manager')->count();
+        $unassignedCount = (clone $statsQuery)->whereNull('team_id')->count();
 
         return view('workers.index', [
-            'worker_array' => $worker_array
+            'worker_array' => $worker_array,
+            'search' => $search,
+            'position' => $position,
+            'sort' => $sort,
+            'totalWorkersCount' => $totalWorkersCount,
+            'managerCount' => $managerCount,
+            'unassignedCount' => $unassignedCount,
         ]);
     }
 
