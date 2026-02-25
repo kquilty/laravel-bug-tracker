@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 style="font-size: 20px; margin-bottom: 1rem;">Open Bugs: <b>{{ count($bug_array) }}</b></h1>
+    <h1 style="font-size: 20px; margin-bottom: 1rem;">Open Bugs: <b>{{ $bug_array->total() }}</b></h1>
     <ul class="buglist-index">
         @foreach ($bug_array as $bug)
             <li>
@@ -12,4 +12,8 @@
             </li>
         @endforeach
     </ul>
+    <br />
+    {{ $bug_array->links() }}
+    <br />
+
 </x-layout>
