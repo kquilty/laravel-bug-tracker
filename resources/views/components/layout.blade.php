@@ -18,16 +18,22 @@
             </div>
             <nav>
                 <ul>
+                    @php
+                        $isHome = request()->path() === '/';
+                        $isBugs = request()->routeIs('bugs.*');
+                        $isWorkers = request()->routeIs('workers.*');
+                        $isTeams = request()->routeIs('teams.*');
+                    @endphp
 
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/" @class(['is-active' => $isHome]) @if($isHome) aria-current="page" @endif>Home</a></li>
 
-                    <li><a href="{{ route('bugs.index') }}">Bugs</a></li>
+                    <li><a href="{{ route('bugs.index') }}" @class(['is-active' => $isBugs]) @if($isBugs) aria-current="page" @endif>Bugs</a></li>
                     {{-- <li><a href="{{ route('bugs.report') }}">Report Bug</a></li> --}}
 
-                    <li><a href="{{ route('workers.index') }}">Workers</a></li>
+                    <li><a href="{{ route('workers.index') }}" @class(['is-active' => $isWorkers]) @if($isWorkers) aria-current="page" @endif>Workers</a></li>
                     {{-- <li><a href="{{ route('workers.create') }}">Add Worker</a></li> --}}
 
-                    <li><a href="{{ route('teams.index') }}">Teams</a></li>
+                    <li><a href="{{ route('teams.index') }}" @class(['is-active' => $isTeams]) @if($isTeams) aria-current="page" @endif>Teams</a></li>
                     {{-- <li><a href="{{ route('teams.create') }}">Add Team</a></li> --}}
 
                 </ul>
