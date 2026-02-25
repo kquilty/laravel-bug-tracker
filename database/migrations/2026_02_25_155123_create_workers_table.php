@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bugs', function (Blueprint $table) {
+        Schema::create('workers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->enum('status', ['open', 'in progress', 'closed'])->default('open');
-            $table->integer('days_old')->default(0);
-            $table->foreignId('worker_id')->nullable()->constrained('workers')->nullOnDelete();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->enum('position', ['general','developer', 'manager'])->default('general');
+            $table->foreignId('team_id')->nullable()->constrained('teams')->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bugs');
+        Schema::dropIfExists('workers');
     }
 };

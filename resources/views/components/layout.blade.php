@@ -22,6 +22,7 @@
     </header>
 
     <main class="container">
+        {{ 'Team '.ucfirst(fake()->word()) }}
         {{ $slot }}
     </main>
 

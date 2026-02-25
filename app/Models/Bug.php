@@ -15,5 +15,11 @@ class Bug extends Model
         'description',
         'status',
         'days_old',
+        'worker_id', // FK
     ];
+
+    public function worker()
+    {
+        return $this->belongsTo(Worker::class);
+    }
 }
