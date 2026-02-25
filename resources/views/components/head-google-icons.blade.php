@@ -1,6 +1,5 @@
-{{ $icons_to_preload='bug_report,diversity_3,people,search' }}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block&icon_names={{ $icons_to_preload }}" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" />
 <style>
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined', 'Material Icons';
