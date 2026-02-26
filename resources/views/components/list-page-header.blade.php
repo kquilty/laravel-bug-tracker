@@ -59,12 +59,14 @@
             </div>
 
             @if ($actionHref && $actionLabel)
+            <div>
                 <a class="btn list-header-action-btn" href="{{ $actionHref }}">
                     @if ($actionIcon)
                         <x-google-icon :name="$actionIcon" class="icon-inline-fix" />
                     @endif
                     {{ $actionLabel }}
                 </a>
+                </div>
             @endif
         </div>
     </div>

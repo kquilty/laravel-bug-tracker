@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .list-header-eyebrow {
     display: flex;
@@ -57,6 +57,7 @@
 .list-header-action-btn {
     align-self: flex-start;
     margin-left: 1.5rem;
+    white-space: nowrap;
 }
 .list-header-stats {
     display: grid;
@@ -175,9 +176,10 @@
 }
 @media (max-width: 700px) {
     .list-header-bar-inner {
-        flex-direction: column;
+        /* flex-direction: column; <---- COMMENTED OUT. we want to keep the action buttons on the left*/
         align-items: flex-start;
         gap: 1.1rem;
+        flex-wrap: nowrap;
     }
     .list-header-controls-form {
         flex-direction: row;
