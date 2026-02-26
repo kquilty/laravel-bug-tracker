@@ -23,7 +23,7 @@ class BugFactory extends Factory
             'title' => fake()->sentence(3),
             'description' => fake()->paragraph(),
             'status' => fake()->randomElement(['open', 'in progress', 'closed']),
-            'days_old' => fake()->numberBetween(0, 60),
+            'days_old' => fake()->numberBetween(0, 40),
             'worker_id' => $worker_id,
         ];
     }
