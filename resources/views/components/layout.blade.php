@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Tracker</title>
+    <title>Help Desk</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('components.head-google-icons')
@@ -14,7 +14,7 @@
         <div class="header-content">
             <div class="brand">
                 <span class="brand-mark" aria-hidden="true"></span>
-                <h1>Bug Tracker</h1>
+                <h1>Help Desk</h1>
             </div>
             <nav>
                 <ul>
