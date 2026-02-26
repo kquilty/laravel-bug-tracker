@@ -81,4 +81,12 @@ class TeamController extends Controller
 
         return redirect()->route('teams.show', ['id' => $team->id])->with('success', 'Team created successfully!');
     }
+
+    function destroy($id) {
+        $team = Team::findOrFail($id);
+
+        $team->delete();
+
+        return redirect()->route('teams.index')->with('success', 'Team "' . $team->name . '" deleted successfully!');
+    }
 }

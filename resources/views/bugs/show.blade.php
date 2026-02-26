@@ -90,4 +90,14 @@
             </div>
         </article>
     </section>
+
+    <form action="{{ route('bugs.destroy', $bug->id) }}" method="POST" class="mt-6">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn inline-flex items-center gap-1 bg-red-600 text-white hover:bg-red-700">
+            <x-google-icon name="delete" class="!text-[18px]" />
+            Delete Bug
+        </button>
+    </form>
+    
 </x-layout>

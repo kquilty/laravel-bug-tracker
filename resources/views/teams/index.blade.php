@@ -43,6 +43,8 @@
         :sort-options="$teamSortOptions"
     />
 
+    <x-success-message />
+
     <div class="mb-4 text-sm text-gray-500">
         Showing {{ $team_array->count() }} team{{ $team_array->count() === 1 ? '' : 's' }} on this page.
     </div>

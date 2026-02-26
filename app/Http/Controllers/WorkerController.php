@@ -87,4 +87,12 @@ class WorkerController extends Controller
 
         return redirect()->route('workers.show', ['id' => $worker->id])->with('success', 'Worker created successfully.');
     }
+
+    function destroy($id) {
+        $worker = Worker::findOrFail($id);
+
+        $worker->delete();
+
+        return redirect()->route('workers.index')->with('success', 'Worker "' . $worker->name . '" deleted successfully!');
+    }
 }

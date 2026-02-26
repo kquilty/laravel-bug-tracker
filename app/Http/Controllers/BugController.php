@@ -87,4 +87,12 @@ class BugController extends Controller
         return redirect()->route('bugs.show', ['id' => $bug->id])
             ->with('success', 'Bug reported successfully!');
     }
+
+    function destroy($id) {
+        $bug = Bug::findOrFail($id);
+
+        $bug->delete();
+
+        return redirect()->route('bugs.index')->with('success', 'Bug #' . $bug->id . ' deleted successfully!');
+    }
 }

@@ -45,3 +45,7 @@ Route::get('/teams/{id}',    [TeamController::class, 'show'])  ->name('teams.sho
 Route::post('/bugs', [BugController::class, 'store'])->name('bugs.store');
 Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
 Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
+
+Route::delete('/bugs/{id}', [BugController::class, 'destroy'])->name('bugs.destroy');
+Route::delete('/workers/{id}', [WorkerController::class, 'destroy'])->name('workers.destroy');
+Route::delete('/teams/{id}', [TeamController::class, 'destroy'])->name('teams.destroy');
