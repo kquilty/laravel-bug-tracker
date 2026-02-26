@@ -33,33 +33,33 @@
     };
 @endphp
 
-<section class="rounded-t-xl border border-slate-200 bg-white/95 shadow-sm">
-    <div class="border-b border-slate-200 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 px-5 py-5">
-        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+<section class="list-header-section">
+    <div class="list-header-bar">
+        <div class="list-header-bar-inner">
             <div>
                 @if ($eyebrow)
-                    <span class="flex items-end gap-1">
+                    <span class="list-header-eyebrow">
                         @if ($eyebrow_icon)
-                            <x-google-icon :name="$eyebrow_icon" wght="300" class="text-[30px] text-slate-500" />
+                            <x-google-icon :name="$eyebrow_icon" wght="300" class="list-header-eyebrow-icon" />
                         @endif
-                        <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">{{ $eyebrow }}</p>
+                        <p class="list-header-eyebrow-label">{{ $eyebrow }}</p>
                 </span>
                 @endif
 
-                <span class="flex items-center gap-1">
-                    <h1 class="text-2xl font-semibold text-slate-900">{{ $title }}</h1>
+                <span class="list-header-title-row">
+                    <h1 class="list-header-title">{{ $title }}</h1>
                     @if ($title_icon)
-                        <x-google-icon :name="$title_icon" class="text-[40px]" />
+                        <x-google-icon :name="$title_icon" class="list-header-title-icon" />
                     @endif
                 </span>
 
                 @if ($subtitle)
-                    <p class="mt-1 text-sm text-slate-600">{{ $subtitle }}</p>
+                    <p class="list-header-subtitle">{{ $subtitle }}</p>
                 @endif
             </div>
 
             @if ($actionHref && $actionLabel)
-                <a class="btn self-start lg:self-auto inline-flex items-center gap-1" href="{{ $actionHref }}">
+                <a class="btn list-header-action-btn" href="{{ $actionHref }}">
                     @if ($actionIcon)
                         <x-google-icon :name="$actionIcon" class="icon-inline-fix" />
                     @endif
@@ -70,11 +70,11 @@
     </div>
 
     @if (count($stats) > 0)
-        <div class="grid gap-3 px-5 py-4 sm:grid-cols-3">
+        <div class="list-header-stats">
             @foreach ($stats as $stat)
-                <div class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2">
-                    <p class="text-xs font-medium uppercase tracking-wide text-slate-500">{{ $stat['label'] }}</p>
-                    <p class="mt-1 text-xl font-semibold text-slate-900">{{ $stat['value'] }}</p>
+                <div class="list-header-stat">
+                    <p class="list-header-stat-label">{{ $stat['label'] }}</p>
+                    <p class="list-header-stat-value">{{ $stat['value'] }}</p>
                 </div>
             @endforeach
         </div>
@@ -82,12 +82,12 @@
 
 </section>
 
-<div class="list-header-controls mb-6 -mt-px rounded-b-xl border border-slate-200 px-5 py-4 shadow-sm">
-    <form action="{{ $formAction }}" method="GET" data-auto-submit class="grid gap-3 {{ $gridClass }} lg:items-start">
-        <div class="w-full">
-            <span class="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Filter</span>
-            <label class="flex w-full items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-500">
-                <span aria-hidden="true">
+<div class="list-header-controls">
+    <form action="{{ $formAction }}" method="GET" data-auto-submit class="list-header-controls-form">
+        <div class="list-header-search-group">
+            <span class="list-header-search-label">Filter</span>
+            <label class="list-header-search-box">
+                <span aria-hidden="true" class="list-header-search-icon">
                     <x-google-icon name="search" />
                 </span>
                 <input
@@ -97,16 +97,16 @@
                     data-applied-value="{{ $search }}"
                     data-hint-id="{{ $hintId }}"
                     placeholder="{{ $searchPlaceholder }}"
-                    class="w-full bg-transparent text-slate-700 placeholder:text-slate-400 focus:outline-none"
+                    class="list-header-search-input"
                 >
             </label>
-            <p id="{{ $hintId }}" class="search-pending-hint text-xs text-slate-500">{{ $searchHint }}</p>
+            <p id="{{ $hintId }}" class="search-pending-hint list-header-search-hint">{{ $searchHint }}</p>
         </div>
 
         @if (count($filterOptions) > 0)
-            <label class="block">
-                <span class="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">{{ $filterLabel }}</span>
-                <select name="{{ $filterName }}" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 focus:border-blue-400 focus:outline-none">
+            <label class="list-header-filter-group">
+                <span class="list-header-filter-label">{{ $filterLabel }}</span>
+                <select name="{{ $filterName }}" class="list-header-filter-select">
                     @foreach ($filterOptions as $option)
                         <option value="{{ $option['value'] }}" @selected((string) $filterValue === (string) $option['value'])>{{ $option['label'] }}</option>
                     @endforeach
@@ -115,9 +115,9 @@
         @endif
 
         @if (count($sortOptions) > 0)
-            <label class="block">
-                <span class="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">{{ $sortLabel }}</span>
-                <select name="{{ $sortName }}" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 focus:border-blue-400 focus:outline-none">
+            <label class="list-header-sort-group">
+                <span class="list-header-sort-label">{{ $sortLabel }}</span>
+                <select name="{{ $sortName }}" class="list-header-sort-select">
                     @foreach ($sortOptions as $option)
                         <option value="{{ $option['value'] }}" @selected((string) $sortValue === (string) $option['value'])>{{ $option['label'] }}</option>
                     @endforeach

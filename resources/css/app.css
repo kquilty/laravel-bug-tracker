@@ -1,3 +1,196 @@
+/* --- List Page Header Styles --- */
+.list-header-section {
+    border-radius: 1rem 1rem 0 0;
+    border: 1px solid #e2e8f0;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 8px -4px #64748b22;
+}
+.list-header-bar {
+    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(90deg, #eff6ff 0%, #ede9fe 100%);
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+}
+.list-header-bar-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+.list-header-eyebrow {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+.list-header-eyebrow-icon {
+    font-size: 1.6rem;
+    color: #64748b;
+}
+.list-header-eyebrow-label {
+    margin-bottom: 0.1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+.list-header-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.list-header-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+.list-header-title-icon {
+    font-size: 2.5rem;
+    color: #6366f1;
+}
+.list-header-subtitle {
+    margin-top: 0.25rem;
+    font-size: 1.01rem;
+    color: #64748b;
+}
+.list-header-action-btn {
+    align-self: flex-start;
+    margin-left: 1.5rem;
+}
+.list-header-stats {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    padding: 1.1rem 1.25rem 1.1rem 1.25rem;
+}
+.list-header-stat {
+    border-radius: 0.7rem;
+    border: 1px solid #e2e8f0;
+    background: #f8fafcbb;
+    padding: 0.7rem 1rem;
+}
+.list-header-stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+.list-header-stat-value {
+    margin-top: 0.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+.list-header-controls {
+    margin-bottom: 1.5rem;
+    margin-top: -1px;
+    border-radius: 0 0 1rem 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px -4px #64748b22;
+    padding: 1.1rem 1.25rem 1.1rem 1.25rem;
+    background: #fff;
+}
+.list-header-controls-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1.1rem;
+    flex-wrap: nowrap;
+}
+.list-header-search-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1 1 220px;
+    max-width: 420px;
+}
+.list-header-search-label {
+    margin-bottom: 0.18rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+.list-header-search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.6rem;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    padding: 0.5rem 0.9rem;
+    font-size: 1rem;
+    color: #64748b;
+}
+.list-header-search-icon {
+    color: #64748b;
+    font-size: 1.2em;
+}
+.list-header-search-input {
+    border: none;
+    background: transparent;
+    color: #1e293b;
+    font-size: 1rem;
+    width: 0;
+    min-width: 60px;
+    flex: 1 1 0%;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+.list-header-search-input::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+.list-header-search-hint {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 0.18rem;
+}
+.list-header-filter-group, .list-header-sort-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 0 0 180px;
+    max-width: 220px;
+}
+.list-header-filter-label, .list-header-sort-label {
+    margin-bottom: 0.18rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+.list-header-filter-select, .list-header-sort-select {
+    border-radius: 0.6rem;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    padding: 0.5rem 0.9rem;
+    font-size: 1rem;
+    color: #1e293b;
+}
+@media (max-width: 700px) {
+    .list-header-bar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.1rem;
+    }
+    .list-header-controls-form {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.7rem;
+    }
+    .list-header-search-group {
+        max-width: 100%;
+    }
+    .list-header-filter-group, .list-header-sort-group {
+        max-width: 120px;
+    }
+}
 /* --- Success Message Styles --- */
 .success-message {
     display: flex;
