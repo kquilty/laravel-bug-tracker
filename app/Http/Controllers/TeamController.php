@@ -70,4 +70,15 @@ class TeamController extends Controller
     function create() {
         return view('teams.create');
     }
+
+    function store(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+        ]);
+
+        $team = Team::create($validated);
+
+        return redirect()->route('teams.show', ['id' => $team->id])->with('success', 'Team created successfully!');
+    }
 }

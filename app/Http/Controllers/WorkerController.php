@@ -74,4 +74,17 @@ class WorkerController extends Controller
     function create() {
         return view('workers.create');
     }
+
+    function store(Request $request) {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:workers,email',
+            'position' => 'required|in:general,developer,manager',
+            'team_id' => 'nullable|exists:teams,id',
+        ]);
+
+        $worker = Worker::create($validatedData);
+
+        return redirect()->route('workers.show', ['id' => $worker->id])->with('success', 'Worker created successfully.');
+    }
 }

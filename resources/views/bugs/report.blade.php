@@ -25,17 +25,16 @@
         </div>
 
         @if($errors->any())
-            <div class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                
+            <div class="form-errors-list">
                 @foreach ($errors->all() as $error)
-                    <div><x-google-icon name="error" class="!text-[18px]" />{{ $error }}</div>
+                    <div><x-google-icon name="error" class="icon-inline-fix" />{{ $error }}</div>
                 @endforeach
             </div>
         @endif
 
         <div class="form-group">
             <button type="submit" class="btn inline-flex items-center gap-1">
-                <x-google-icon name="bug_report" class="icon-inline-fix" />
+                <x-google-icon name="bug_report" class="icon-inline-fix p-0 m-0" />
                 Submit Bug
             </button>
         </div>
