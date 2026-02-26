@@ -17,7 +17,7 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Team '.ucfirst($this->faker->word()), 
+            'name' => 'Team '.ucfirst(fake()->word()), 
         ];
     }
 }

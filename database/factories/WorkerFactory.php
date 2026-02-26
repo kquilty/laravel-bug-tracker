@@ -18,9 +18,9 @@ class WorkerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'position' => $this->faker->randomElement(['general', 'developer', 'manager']),
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'position' => fake()->randomElement(['general', 'developer', 'manager']),
 
             // Assign every worker to a team
             'team_id' => Team::inRandomOrder()->first()?->id,
