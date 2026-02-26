@@ -10,11 +10,11 @@
 
                 <div class="flex flex-wrap items-center gap-2">
                     <a href="{{ route('bugs.report') }}" class="btn inline-flex items-center gap-1">
-                        <x-google-icon name="bug_report" class="!text-[18px]" />
+                        <x-google-icon name="bug_report" class="icon-inline-fix" />
                         Report New Bug
                     </a>
                     <a href="{{ route('workers.create') }}" class="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
-                        <x-google-icon name="person_add" class="!text-[18px]" />
+                        <x-google-icon name="person_add" class="icon-inline-fix" />
                         Add Worker
                     </a>
                 </div>

@@ -27,6 +27,7 @@
         subtitle="Review group structure, monitor staffing, and organize team ownership."
         :action-href="route('teams.create')"
         action-label="Add New Team"
+        action-icon="group_add"
         :stats="$teamStats"
         :form-action="route('teams.index')"
         :search="$search"

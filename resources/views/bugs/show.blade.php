@@ -13,6 +13,13 @@
         };
     @endphp
 
+    @if(session('success'))
+        <div class="mb-4 flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
+            <x-google-icon name="check_circle" class="!text-[18px]" />
+            <span>{{ session('success') }}</span>
+        </div>
+    @endif
+
     <section class="mb-6 overflow-hidden rounded-xl border border-slate-200 bg-white/95 shadow-sm">
         <div class="border-b border-slate-200 bg-gradient-to-r from-red-50/80 to-amber-50/70 px-5 py-5">
             <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

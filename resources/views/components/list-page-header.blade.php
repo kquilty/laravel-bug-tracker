@@ -6,6 +6,7 @@
     'subtitle' => null,
     'actionHref' => null,
     'actionLabel' => null,
+    'actionIcon' => null,
     'stats' => [],
     'formAction',
     'search' => '',
@@ -58,7 +59,12 @@
             </div>
 
             @if ($actionHref && $actionLabel)
-                <a class="btn self-start lg:self-auto" href="{{ $actionHref }}">{{ $actionLabel }}</a>
+                <a class="btn self-start lg:self-auto inline-flex items-center gap-1" href="{{ $actionHref }}">
+                    @if ($actionIcon)
+                        <x-google-icon :name="$actionIcon" class="icon-inline-fix" />
+                    @endif
+                    {{ $actionLabel }}
+                </a>
             @endif
         </div>
     </div>

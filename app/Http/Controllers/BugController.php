@@ -74,4 +74,17 @@ class BugController extends Controller
     function report() {
         return view('bugs.report');
     }
+
+    function store(Request $request) {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255|min:5',
+            'description' => 'required|string|min:5',
+            'status' => 'required|string',
+        ]);
+
+        $bug = Bug::create($validatedData);
+
+        return redirect()->route('bugs.show', ['id' => $bug->id])
+            ->with('success', 'Bug reported successfully!');
+    }
 }

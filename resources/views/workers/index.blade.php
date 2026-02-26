@@ -28,6 +28,7 @@
         subtitle="Browse contributors, review roles, and keep team assignments organized."
         :action-href="route('workers.create')"
         action-label="Add New Worker"
+        action-icon="person_add"
         :stats="$workerStats"
         :form-action="route('workers.index')"
         :search="$search"

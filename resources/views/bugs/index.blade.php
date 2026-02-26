@@ -25,6 +25,7 @@
         subtitle="Monitor incoming issues, triage faster, and keep your team unblocked."
         :action-href="route('bugs.report')"
         action-label="Report New Bug"
+        action-icon="bug_report"
         :stats="$bugStats"
         :form-action="route('bugs.index')"
         :search="$search"

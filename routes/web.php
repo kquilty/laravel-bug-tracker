@@ -41,3 +41,7 @@ Route::get('/workers/{id}',    [WorkerController::class, 'show'])  ->name('worke
 Route::get('/teams',         [TeamController::class, 'index']) ->name('teams.index');
 Route::get('/teams/create',  [TeamController::class, 'create'])->name('teams.create');
 Route::get('/teams/{id}',    [TeamController::class, 'show'])  ->name('teams.show');
+
+Route::post('/bugs', [BugController::class, 'store'])->name('bugs.store');
+Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
+Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
