@@ -35,8 +35,7 @@ setupDesktopSmoothScroll();
 const header = document.querySelector('header');
 
 if (header) {
-	const COMPACT_ENTER_Y = 42;
-	const COMPACT_EXIT_Y = 14;
+	const COMPACT_SCROLL_TRIGGER = 150; // px
 	const MIN_TOGGLE_INTERVAL_MS = 220;
 
 	let isCompact = header.classList.contains('is-compact');
@@ -47,7 +46,7 @@ if (header) {
 		const currentY = Math.round(window.scrollY);
 		const now = performance.now();
 
-		const shouldBeCompact = isCompact ? currentY > COMPACT_EXIT_Y : currentY >= COMPACT_ENTER_Y;
+		const shouldBeCompact = currentY >= COMPACT_SCROLL_TRIGGER;
 		if (shouldBeCompact === isCompact) {
 			return;
 		}
