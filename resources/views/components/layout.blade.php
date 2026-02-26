@@ -46,5 +46,11 @@
         {{ $slot }}
     </main>
 
+    <footer class="site-footer" style="text-align:center; margin-top:2.5rem; color:#64748b; font-size:0.98rem; padding-bottom:2.5rem;">
+        <span>&copy; {{ date('Y') }} A Laravel sandbox created by 
+            <a href="https://kylequilty.com/apps" target="_blank" rel="noopener" style="color:#2563eb; text-decoration:underline; font-weight:500;">Kyle Quilty</a>
+        </span>
+    </footer>
+
 </body>
 </html>
