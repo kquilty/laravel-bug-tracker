@@ -63,9 +63,7 @@ class BugController extends Controller
         ]);
     }
 
-    function show($id) {
-        $bug = Bug::find($id);
-
+    function show(Bug $bug) {
         return view('bugs.show', [
             'bug' => $bug
         ]);
@@ -84,12 +82,11 @@ class BugController extends Controller
 
         $bug = Bug::create($validatedData);
 
-        return redirect()->route('bugs.show', ['id' => $bug->id])
-            ->with('success', 'Bug reported successfully!');
+        return redirect()->route('bugs.index', ['bug' => $bug])
+            ->with('success', 'Bug #' . $bug->id . ' reported successfully!');
     }
 
-    function destroy($id) {
-        $bug = Bug::findOrFail($id);
+    function destroy(Bug $bug) {
 
         $bug->delete();
 

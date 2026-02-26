@@ -63,9 +63,7 @@ class WorkerController extends Controller
         ]);
     }
 
-    function show($id) {
-        $worker = Worker::find($id);
-
+    function show(Worker $worker) {
         return view('workers.show', [
             'worker' => $worker
         ]);
@@ -85,11 +83,10 @@ class WorkerController extends Controller
 
         $worker = Worker::create($validatedData);
 
-        return redirect()->route('workers.show', ['id' => $worker->id])->with('success', 'Worker created successfully.');
+        return redirect()->route('workers.index', ['worker' => $worker])->with('success', 'Worker created successfully.');
     }
 
-    function destroy($id) {
-        $worker = Worker::findOrFail($id);
+    function destroy(Worker $worker) {
 
         $worker->delete();
 

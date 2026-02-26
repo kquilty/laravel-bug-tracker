@@ -59,9 +59,7 @@ class TeamController extends Controller
         ]);
     }
 
-    function show($id) {
-        $team = Team::find($id);
-
+    function show(Team $team) {
         return view('teams.show', [
             'team' => $team
         ]);
@@ -79,11 +77,10 @@ class TeamController extends Controller
 
         $team = Team::create($validated);
 
-        return redirect()->route('teams.show', ['id' => $team->id])->with('success', 'Team created successfully!');
+        return redirect()->route('teams.index', ['team' => $team])->with('success', 'Team "' . $team->name . '" created successfully!');
     }
 
-    function destroy($id) {
-        $team = Team::findOrFail($id);
+    function destroy(Team $team) {
 
         $team->delete();
 

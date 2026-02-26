@@ -1,3 +1,28 @@
+/* --- Success Message Styles --- */
+.success-message {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+    padding: 1.1rem 1.3rem 1.1rem 1.1rem;
+    border-radius: 12px;
+    border: 1.5px solid #4ade80;
+    background: linear-gradient(90deg, #d1fae5 0%, #f0fdf4 100%);
+    color: #047857;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 6px 24px -10px #4ade80a0, 0 1.5px 8px -2px #04785722;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+}
+
+.success-message-icon {
+    font-size: 1.55em;
+    color: #22c55e;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px #bbf7d0);
+}
 /* --- Reusable Form Styles --- */
 .form {
     max-width: 420px;

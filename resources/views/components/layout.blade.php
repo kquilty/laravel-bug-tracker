@@ -42,6 +42,7 @@
     </header>
 
     <main>
+        <x-success-message />
         {{ $slot }}
     </main>
 
