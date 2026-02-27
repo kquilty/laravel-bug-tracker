@@ -50,7 +50,13 @@
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2">
                 <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Assigned Worker</p>
-                <p class="mt-1 text-lg font-semibold text-slate-900"><a href="{{ route('workers.show', $bug->worker->id) }}">{{ $assignedWorker }}</a></p>
+                <p class="mt-1 text-lg font-semibold text-slate-900">
+                    @if($bug->worker)
+                        <a href="{{ route('workers.show', $bug->worker->id) }}">{{ $assignedWorker }}</a>
+                    @else
+                        {{ $assignedWorker }}
+                    @endif
+                </p>
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2">
                 <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Reported</p>
@@ -94,7 +100,7 @@
     <form action="{{ route('bugs.destroy', $bug->id) }}" method="POST" class="mt-6">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn inline-flex items-center gap-1 bg-red-600 text-white hover:bg-red-700">
+        <button type="submit" class="btn inline-flex items-center gap-1 bg-red-600 text-white hover:bg-red-700" onclick="return confirm('Are you sure? This action cannot be undone.')">
             <x-google-icon name="delete" class="!text-[18px]" />
             Delete Bug
         </button>
