@@ -47,7 +47,7 @@
                 @endif
 
                 <span class="list-header-title-row">
-                    <h1 class="list-header-title">{{ $title }}</h1>
+                    <h1 class="list-header-title">{!! $title !!}</h1>
                     @if ($title_icon)
                         <x-google-icon :name="$title_icon" class="list-header-title-icon" />
                     @endif

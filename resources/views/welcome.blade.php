@@ -3,7 +3,7 @@
         <div class="border-b border-slate-200 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 px-5 py-6">
             <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <div>
-                    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Help Desk</p>
+                    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Laravel Bugtracker</p>
                     <h1 class="text-3xl font-semibold text-slate-900">Command Center</h1>
                     <p class="mt-2 max-w-2xl text-sm text-slate-600">Active work, staffing coverage. Areas that need attention.</p>
                 </div>
