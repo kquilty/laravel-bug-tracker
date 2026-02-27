@@ -50,7 +50,7 @@
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2">
                 <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Assigned Worker</p>
-                <p class="mt-1 text-lg font-semibold text-slate-900">{{ $assignedWorker }}</p>
+                <p class="mt-1 text-lg font-semibold text-slate-900"><a href="{{ route('workers.show', $bug->worker->id) }}">{{ $assignedWorker }}</a></p>
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2">
                 <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Reported</p>

@@ -21,7 +21,7 @@
     <x-list-page-header
         eyebrow="Bug Tracking"
         eyebrow_icon="bug_report"
-        title="Open and In Progress Bugs: {{ $openCount + $inProgressCount }}"
+        title="Open/In-Progress: {{ $openCount + $inProgressCount }}"
         subtitle="Monitor incoming issues, triage faster, and keep your team unblocked."
         :action-href="route('bugs.report')"
         action-label="Report New Bug"
