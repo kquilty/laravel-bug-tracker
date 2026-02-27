@@ -13,6 +13,21 @@ class TeamSeeder extends Seeder
      */
     public function run(): void
     {
-        Team::factory()->count(10)->create();
+        $teamNames = [
+            'Agile Avengers',
+            'Sprint Spartans',
+            'Kanban Commandos',
+            'Scrum Stormers',
+            'Velocity Vanguards',
+            'Backlog Bandits',
+            'Epic Executors',
+            'User Story Squad',
+            'Daily Standup Stars',
+            'Retrospective Rockstars',
+        ];
+
+        foreach ($teamNames as $name) {
+            Team::create(['name' => $name]);
+        }
     }
 }
