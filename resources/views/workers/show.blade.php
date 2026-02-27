@@ -87,7 +87,7 @@
     <form action="{{ route('workers.destroy', $worker->id) }}" method="POST" class="mt-6">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn inline-flex items-center gap-1 bg-red-600 text-white hover:bg-red-700">
+        <button type="submit" class="btn inline-flex items-center gap-1 bg-red-600 text-white hover:bg-red-700" onclick="return confirm('Are you sure? This action cannot be undone.')">
             <x-google-icon name="delete" class="!text-[18px]" />
             Delete Worker
         </button>
